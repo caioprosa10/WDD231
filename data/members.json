@@ -1,0 +1,59 @@
+[
+    {
+      "name": "Salt Lake Cafe",
+      "address": "123 Main St, Salt Lake City, UT",
+      "phone": "(801) 555-1234",
+      "website": "https://saltlakecafe.example.com",
+      "image": "sltcafe.jpg",
+      "membership": "2"
+    },
+    {
+      "name": "Mountain Tech Solutions",
+      "address": "456 Tech Rd, Salt Lake City, UT",
+      "phone": "(801) 555-5678",
+      "website": "https://mountaintech.example.com",
+      "image": "mountaintech.jpg",
+      "membership": "3"
+    },
+    {
+      "name": "Oasis Spa",
+      "address": "789 Relax Ln, Salt Lake City, UT",
+      "phone": "(801) 555-9012",
+      "website": "https://oasisspa.example.com",
+      "image": "oasis_spa.jpg",
+      "membership": "2"
+    },
+    {
+      "name": "Alpine Fitness",
+      "address": "321 Workout Ave, Salt Lake City, UT",
+      "phone": "(801) 555-3456",
+      "website": "https://alpinefitness.example.com",
+      "image": "alpine_fitness.jpg",
+      "membership": "1"
+    },
+    {
+      "name": "Urban Markets",
+      "address": "654 Grocery Blvd, Salt Lake City, UT",
+      "phone": "(801) 555-7890",
+      "website": "https://urbanmarkets.example.com",
+      "image": "urban_markets.jpg",
+      "membership": "3"
+    },
+    {
+      "name": "Canyon Bistro",
+      "address": "987 Dine St, Salt Lake City, UT",
+      "phone": "(801) 555-2345",
+      "website": "https://canyonbistro.example.com",
+      "image": "canyon_bistro.jpg",
+      "membership": "2"
+    },
+    {
+      "name": "Desert Books",
+      "address": "159 Read Ln, Salt Lake City, UT",
+      "phone": "(801) 555-6789",
+      "website": "https://desertbooks.example.com",
+      "image": "desert_books.jpg",
+      "membership": "1"
+    }
+  ]
+  
