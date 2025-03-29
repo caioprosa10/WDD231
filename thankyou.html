@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chamber of Commerce - Salt Lake City, Utah" />
+  <meta name="author" content="Seu Nome" />
+  <title>Thank You - Chamber of Commerce</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Chamber of Commerce</h1>
+    </div>
+    
+    <!-- Botão hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Thank You for Joining!</h2>
+    <p>We have received your application with the following details:</p>
+    <p><strong>First Name:</strong> <span id="out-firstname"></span></p>
+    <p><strong>Last Name:</strong> <span id="out-lastname"></span></p>
+    <p><strong>Email:</strong> <span id="out-email"></span></p>
+    <p><strong>Phone:</strong> <span id="out-phone"></span></p>
+    <p><strong>Business/Organization:</strong> <span id="out-business"></span></p>
+    <p><strong>Submitted on:</strong> <span id="out-timestamp"></span></p>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Seu Nome - WDD 231</p>
+    <p>Última modificação: <span id="last-modified"></span></p>
+  </footer>
+
+  <!-- Mesmo script principal (ou um script específico se preferir) -->
+  <script src="js/script.js"></script>
+  <!-- Pequeno script para exibir os dados enviados via GET -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("out-firstname").textContent = params.get("firstname") || "";
+      document.getElementById("out-lastname").textContent = params.get("lastname") || "";
+      document.getElementById("out-email").textContent = params.get("email") || "";
+      document.getElementById("out-phone").textContent = params.get("phone") || "";
+      document.getElementById("out-business").textContent = params.get("business") || "";
+      document.getElementById("out-timestamp").textContent = params.get("timestamp") || "";
+    });
+  </script>
+</body>
+</html>
