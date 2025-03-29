@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Directory - Chamber of Commerce de Salt Lake City, Utah" />
+  <meta name="author" content="Seu Nome" />
+  <title>Directory - Chamber of Commerce</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Chamber of Commerce</h1>
+    </div>
+    
+    <!-- Botão hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Diretório de Membros</h2>
+    <!-- Botões para alternar entre Grid e Lista -->
+    <div class="view-toggle">
+      <button id="grid-view">Grid</button>
+      <button id="list-view">Lista</button>
+    </div>
+    <!-- Container para exibir os membros -->
+    <section id="members-container" class="grid">
+      <p>Carregando membros...</p>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; <span id="current-year"></span> Caio Palladino - WDD 231</p>
+    <p>Última modificação: <span id="last-modified"></span></p>
+  </footer>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
