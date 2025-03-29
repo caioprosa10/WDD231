@@ -1,0 +1,268 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Cabeçalho e Navegação */
+header {
+  background: #f4f4f4;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+nav li {
+  margin-left: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(70%);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cta-button {
+  background: #333;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+/* Seções gerais */
+section {
+  padding: 2rem;
+}
+
+/* Diretório de Membros */
+.view-toggle {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.view-toggle button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+#members-container.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+#members-container.list {
+  display: block;
+}
+
+/* Card do Membro */
+.member-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.member-card img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Rodapé */
+footer {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Hamburguer Section */
+/* Estilo do botão hamburger (por padrão, oculto em telas grandes) */
+.hamburger {
+  display: none; /* Só mostramos no mobile */
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Modo MOBILE: a partir de ~600px */
+@media (max-width: 600px) {
+  /* Mostra o botão hamburger */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Esconde a lista de navegação por padrão */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background-color: #f4f4f4;
+    flex-direction: column;
+    width: 150px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Exibe a lista de navegação quando a classe "open" estiver presente */
+  .nav-links.open {
+    display: flex;
+  }
+}
+/* JOIN CONTAINER - Form + Cards */
+.join-container {
+  display: flex;
+  gap: 2rem;
+  /* Espaço interno, ajuste conforme sua preferência */
+  flex-wrap: wrap; 
+  /* Em telas grandes, form e cards lado a lado. Em telas pequenas, um embaixo do outro. */
+}
+
+@media (max-width: 800px) {
+  .join-container {
+    flex-direction: column;
+  }
+}
+
+/* MEMBERSHIP CARDS */
+.membership-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* Animação de transição inicial (fade-in) */
+  opacity: 0;
+  animation: fadeInCards 1.5s forwards ease-in-out;
+}
+
+@keyframes fadeInCards {
+  to {
+    opacity: 1;
+  }
+}
+
+.membership-cards .card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 4px;
+  background: #fff;
+  width: calc(50% - 1rem);
+  position: relative;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 600px) {
+  .membership-cards .card {
+    width: 100%;
+  }
+}
+
+/* MODAL (oculto por padrão) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.7); /* Sombra do backdrop */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 4px;
+}
+
+/* Botão de fechar (x) */
+.modal-content .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* FORMULÁRIO (labels e inputs) */
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+form input[type="submit"] {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
