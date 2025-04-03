@@ -1,0 +1,51 @@
+[
+    {
+      "title": "Temple Square",
+      "address": "50 N Main St, Salt Lake City, UT 84150",
+      "description": "A historic site with beautiful gardens and architecture.",
+      "image": "temple_square.webp"
+    },
+    {
+      "title": "Great Salt Lake",
+      "address": "Interstate 80, Salt Lake City, UT",
+      "description": "The largest saltwater lake in the Western Hemisphere.",
+      "image": "great_salt_lake.webp"
+    },
+    {
+      "title": "City Creek Center",
+      "address": "50 S Main St, Salt Lake City, UT 84101",
+      "description": "A premier shopping destination with dining and entertainment.",
+      "image": "city_creek_center.webp"
+    },
+    {
+      "title": "Hogle Zoo",
+      "address": "2600 Traverwood Dr, Salt Lake City, UT 84108",
+      "description": "A fun and educational destination for all ages.",
+      "image": "hogle_zoo.webp"
+    },
+    {
+      "title": "Utah State Capitol",
+      "address": "350 N State St, Salt Lake City, UT 84103",
+      "description": "A majestic building offering tours and scenic views.",
+      "image": "utah_state_capitol.webp"
+    },
+    {
+      "title": "Liberty Park",
+      "address": "600 E 900 S, Salt Lake City, UT 84105",
+      "description": "A popular park with recreational activities and a pond.",
+      "image": "liberty_park.webp"
+    },
+    {
+      "title": "Red Butte Garden",
+      "address": "300 Wakara Way, Salt Lake City, UT 84108",
+      "description": "Beautiful botanical gardens featuring diverse plant collections.",
+      "image": "red_butte_garden.webp"
+    },
+    {
+      "title": "Clark Planetarium",
+      "address": "110 S State St, Salt Lake City, UT 84111",
+      "description": "An interactive space exhibit with engaging displays.",
+      "image": "clark_planetarium.webp"
+    }
+  ]
+  
