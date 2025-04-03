@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover - Chamber of Commerce de Salt Lake City, Utah" />
+  <meta name="author" content="Seu Nome" />
+  <title>Discover - Chamber of Commerce</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Inline CSS para layout usando Grid Template Areas e ajustes para mobile -->
+  <style>
+    /* Ajuste para garantir que o header e nav fiquem visíveis no mobile */
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+    .nav-links {
+      z-index: 1010;
+    }
+    
+    /* Container principal da página Discover */
+    .discover-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "visit"
+        "cards";
+      gap: 1rem;
+      padding: 2rem;
+    }
+    /* Área da sidebar para mensagem de visita */
+    .visit-sidebar {
+      grid-area: visit;
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    /* Área dos cards usando grid-template-areas nomeadas para cada card */
+    .discover-cards {
+      grid-area: cards;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+      gap: 1rem;
+    }
+    /* Estilo básico para cada card */
+    .discover-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 4px;
+    }
+    
+    /* Layout para telas médias (641px a 1024px) */
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .discover-cards {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+          "card1 card2"
+          "card3 card4"
+          "card5 card6"
+          "card7 card8";
+      }
+    }
+    /* Layout para telas grandes (1025px ou mais) */
+    @media (min-width: 1025px) {
+      .discover-container {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: 
+          "visit cards";
+      }
+      .discover-cards {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+          "card1 card2 card3 card4"
+          "card5 card6 card7 card8";
+      }
+    }
+    
+    /* Efeito hover nas imagens apenas para telas maiores que 640px */
+    @media (min-width: 641px) {
+      .discover-card figure img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Chamber of Commerce</h1>
+    </div>
+    
+    <!-- Botão hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html" class="active">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Container principal: sidebar com mensagem e seção dos cards -->
+    <div class="discover-container">
+      <!-- Sidebar para exibição da mensagem de visita -->
+      <aside class="visit-sidebar" id="visit-message">
+        <!-- A mensagem será preenchida via JavaScript -->
+      </aside>
+      
+      <!-- Seção para os 8 cards, que serão criados dinamicamente -->
+      <section class="discover-cards" id="discover-cards">
+        <!-- Cards serão inseridos aqui -->
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; <span id="current-year"></span> Caio Palladino - WDD 231</p>
+    <p>Última modificação: <span id="last-modified"></span></p>
+  </footer>
+  
+  <script src="js/script.js"></script>
+  <!-- JavaScript específico para Discover Page -->
+  <script>
+    // Atualiza o rodapé (função definida em script.js)
+    updateFooter && updateFooter();
+    
+    // Função para exibir a mensagem baseada na data da última visita (usando localStorage)
+    function displayVisitMessage() {
+      const visitMsgElem = document.getElementById("visit-message");
+      const lastVisit = localStorage.getItem("lastVisit");
+      const now = Date.now();
+      let message = "";
+      
+      if (!lastVisit) {
+        message = "Welcome! Let us know if you have any questions.";
+      } else {
+        const diffDays = Math.floor((now - parseInt(lastVisit)) / (1000 * 60 * 60 * 24));
+        if (diffDays < 1) {
+          message = "Back so soon! Awesome!";
+        } else {
+          message = `You last visited ${diffDays} ${diffDays === 1 ? "day" : "days"} ago.`;
+        }
+      }
+      visitMsgElem.textContent = message;
+      localStorage.setItem("lastVisit", now);
+    }
+    
+    displayVisitMessage();
+    
+    // Função para carregar os itens de descoberta a partir do arquivo JSON
+    async function loadDiscoverItems() {
+      try {
+        const response = await fetch("data/discover.json");
+        const items = await response.json();
+        const cardsContainer = document.getElementById("discover-cards");
+        
+        items.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.classList.add("discover-card");
+          // Atribui a área do grid nomeada (card1, card2, etc.)
+          card.style.gridArea = "card" + (index + 1);
+          
+          card.innerHTML = `
+            <h2>${item.title}</h2>
+            <figure>
+              <img src="images/${item.image}" alt="${item.title}" loading="lazy" width="300" height="200">
+            </figure>
+            <address>${item.address}</address>
+            <p>${item.description}</p>
+            <button type="button">Learn More</button>
+          `;
+          cardsContainer.appendChild(card);
+        });
+      } catch (error) {
+        console.error("Erro ao carregar itens de descoberta:", error);
+      }
+    }
+    
+    loadDiscoverItems();
+  </script>
+</body>
+</html>
